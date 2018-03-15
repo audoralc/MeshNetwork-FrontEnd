@@ -182,7 +182,7 @@ textarea {
   background: #261e1e;
   height: 100px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   color: #bbbbbb;

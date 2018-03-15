@@ -61,6 +61,7 @@
   .homeFooterContainer {
     padding: 15px;
     text-align: center;
+    flex-direction: column;
   }
 }
 

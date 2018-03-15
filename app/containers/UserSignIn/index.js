@@ -143,12 +143,12 @@ export default class UserSignIn extends React.PureComponent {
           {this.renderLoading()}
           <Header space={this.props.spaceName} />
           <div className="userSignUpBanner">
-            <div className="homeHeaderContentTitle">
+            <h2 className="homeHeaderContentTitle">
               Welcome Back, Fellow Coworker
-            </div>
-            <div className="homeHeaderContentSubtitle">
+            </h2>
+            <h3 className="homeHeaderContentSubtitle">
               Find out what you have been missing
-            </div>
+            </h3>
           </div>
         </header>
 
@@ -229,8 +229,9 @@ export default class UserSignIn extends React.PureComponent {
         </main>
 
         <footer className="homeFooterContainer">
-          Copyright © 2018 theClubhou.se • 540 Telfair Street • Tel: (706)
-          723-5782
+          Copyright © 2018 theClubhou.se
+          <address style={{ margin: "0 .5em" }}>• 540 Telfair Street •</address>
+          Tel: (706) 723-5782
         </footer>
 
         <Snackbar

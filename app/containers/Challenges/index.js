@@ -48,19 +48,19 @@ export default class Challenges extends React.PureComponent {
 
   getChallenges = () => {
     fetch("https://innovationmesh.com/api/getChallenges/5", {
-      method:'GET',
+      method: "GET"
     })
-    .then(response => response.json())
-    .then(json => {
-      this.setState({
-        challenges:json.challenges.data
-      })
-    })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          challenges: json.challenges.data
+        });
+      });
   };
 
   getQuestions = () => {
     fetch("https://innovationmesh.com/api/getQuestions/5", {
-      method:'GET',
+      method: "GET"
     })
       .then(response => response.json())
       .then(json => {
@@ -72,7 +72,7 @@ export default class Challenges extends React.PureComponent {
 
   getTeams = () => {
     fetch("https://innovationmesh.com/api/getTeams/5", {
-      method:'GET',
+      method: "GET"
     })
       .then(response => response.json())
       .then(json => {
@@ -109,7 +109,7 @@ export default class Challenges extends React.PureComponent {
             </div>
             <div className="challenges_challengeFeed">
               <div className="challenges_feedContainer">
-                <div className="challenges_feedHeader">Challenges</div>
+                <h3 className="challenges_feedHeader">Challenges</h3>
                 <div className="challenges_feedList">
                   {this.state.challenges.map((u, i) => (
                     <Link
@@ -123,9 +123,9 @@ export default class Challenges extends React.PureComponent {
                         src={u.challengeImage}
                       />
                       <div className="challenges_feedInfo">
-                        <div className="challenges_feedTitle">
+                        <h4 className="challenges_feedTitle">
                           {u.challengeTitle}
-                        </div>
+                        </h4>
                         <div
                           className="challenges_feedContent"
                           dangerouslySetInnerHTML={{
@@ -177,9 +177,9 @@ export default class Challenges extends React.PureComponent {
                         </div>
                       </div>
                       <div className="challenges_feedInfo">
-                        <div className="challenges_feedTitle">
+                        <h4 className="challenges_feedTitle">
                           {q.questionTitle}
-                        </div>
+                        </h4>
                         <div
                           className="challenges_feedContent"
                           dangerouslySetInnerHTML={{
@@ -193,7 +193,7 @@ export default class Challenges extends React.PureComponent {
               </div>
 
               <div className="challenges_feedContainer">
-                <div className="challenges_feedHeader">Teams</div>
+                <h3 className="challenges_feedHeader">Teams</h3>
                 {this.state.teams.map((t, i) => (
                   <Link
                     to={"/Challenges/team/" + t.id}

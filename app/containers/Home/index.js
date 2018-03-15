@@ -49,12 +49,12 @@ export default class Home extends React.PureComponent {
     if (!this.state.token && !this.state.user) {
       return (
         <div className="homeHeaderContent">
-          <div className="homeHeaderContentTitle">
+          <h2 className="homeHeaderContentTitle">
             Discover Great Collaborative Spaces
-          </div>
-          <div className="homeHeaderContentSubtitle">
+          </h2>
+          <h3 className="homeHeaderContentSubtitle">
             Find amazing places to work, network, and innovate.
-          </div>
+          </h3>
           <div className="homeHeaderContentSearchBar">
             <div className="homeSignButtons">
               <Link
@@ -98,11 +98,11 @@ export default class Home extends React.PureComponent {
     } else {
       return (
         <div className="homeHeaderContent">
-          <div className="homeHeaderContentTitle">
+          <h2 className="homeHeaderContentTitle">
             Hey There,{" "}
             <span style={{ color: "#ff4d58" }}>{this.state.user.name}!</span>
-          </div>
-          <div
+          </h2>
+          <h3
             className="homeHeaderContentSubtitle"
             style={{ margin: "1em 2em", textAlign: "center" }}
           >
@@ -116,7 +116,7 @@ export default class Home extends React.PureComponent {
             >
               - {this.state.quote.author}
             </span>
-          </div>
+          </h3>
         </div>
       );
     }
@@ -138,13 +138,13 @@ export default class Home extends React.PureComponent {
 
         <main>
           <div className="homeMainSection">
-            <div className="homeMainSectionTitle">
+            <h4 className="homeMainSectionTitle">
               What are you interested in?
-            </div>
-            <div className="homeMainSectionSubtitle">
+            </h4>
+            <p className="homeMainSectionSubtitle">
               Explore some of the best features of collaboration from our
               partners and friends.
-            </div>
+            </p>
             <div className="homeMainSectionContent">
               <div
                 className="homeMainSectionBlockOne"
@@ -235,58 +235,59 @@ export default class Home extends React.PureComponent {
             <div className="homeMainSectionContent" />
               </div>*/}
           <div className="homeMainSection" style={{ background: "#EEEEEE" }}>
-            <div className="homeMainSectionTitle">See How It Works</div>
-            <div className="homeMainSectionSubtitle">
+            <h4 className="homeMainSectionTitle">See How It Works</h4>
+            <p className="homeMainSectionSubtitle">
               Discover how the Mesh Network can help you find everything you
               want.
-            </div>
+            </p>
             <div className="homeMainSectionContentTwo">
               <div className="homeMainSectionBlockTwo">
                 <img alt="" src="http://h4z.it/Image/af1a08_how1.PNG" />
-                <div className="homeMainSectionBlockTitle">
+                <h5 className="homeMainSectionBlockTitle">
                   Choose What You Do
-                </div>
-                <div className="homeMainSectionBlockContent">
+                </h5>
+                <p className="homeMainSectionBlockContent">
                   Creating a new workspace? Whether you are just starting out or
                   joining your local community, the Mesh Network has something
                   to offer.
-                </div>
+                </p>
               </div>
               <div className="homeMainSectionBlockTwo">
                 <img alt="" src="http://h4z.it/Image/3889d9_how2.PNG" />
-                <div className="homeMainSectionBlockTitle">
+                <h5 className="homeMainSectionBlockTitle">
                   Find What You Want
-                </div>
-                <div className="homeMainSectionBlockContent">
+                </h5>
+                <p className="homeMainSectionBlockContent">
                   Search and filter hundreds of listings, read reviews, explore
                   photos and find the perfect spot.
-                </div>
+                </p>
               </div>
               <div className="homeMainSectionBlockTwo">
                 <img alt="" src="http://h4z.it/Image/79caa9_how3.PNG" />
-                <div className="homeMainSectionBlockTitle">
+                <h5 className="homeMainSectionBlockTitle">
                   Explore Awesome Places
-                </div>
-                <div className="homeMainSectionBlockContent">
+                </h5>
+                <p className="homeMainSectionBlockContent">
                   Go and have a productive time or even make a booking directly
                   from the listing page. All of those, thanks to the Mesh
                   Network!
-                </div>
+                </p>
               </div>
             </div>
           </div>
           {/*<div className="homeMainSection" style={{ background: "#EEEEEE" }}>
-            <div className="homeMainSectionTitle">Tips & Articles</div>
-            <div className="homeMainSectionSubtitle">
+            <h4 className="homeMainSectionTitle">Tips & Articles</h4>
+            <p className="homeMainSectionSubtitle">
               Browse the latest helpful Articles and Tips
-            </div>
+            </p>
             <div className="homeMainSectionContent" />
             </div>*/}
         </main>
 
         <footer className="homeFooterContainer">
-          Copyright © 2018 theClubhou.se • 540 Telfair Street • Tel: (706)
-          723-5782
+          Copyright © 2018 theClubhou.se
+          <address style={{ margin: "0 .5em" }}>• 540 Telfair Street •</address>
+          Tel: (706) 723-5782
         </footer>
       </div>
     );

@@ -32,16 +32,14 @@ export default class Spaces extends React.PureComponent {
     fetch(`https://innovationmesh.com/api/workspaces`, {
       method: "GET"
     })
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
-      .then(
-        (json) => {
-          this.setState({
-            spaces: json
-          });
-        }
-      );
+      .then(json => {
+        this.setState({
+          spaces: json
+        });
+      });
   };
 
   clickMarker = spaceId => {
@@ -62,14 +60,18 @@ export default class Spaces extends React.PureComponent {
         <main className="spacesMain">
           <div className="spacesMainContainer">
             {this.state.spaces.map((space, i) => (
-              <Link to={"space/" + space.slug} className="spacesBlock" key={`SpacesBlock${i}`}>
+              <Link
+                to={"space/" + space.slug}
+                className="spacesBlock"
+                key={`SpacesBlock${i}`}
+              >
                 <div className="spacesBlockImage">
                   <img alt="" src={space.logo} />
                 </div>
-                <div className="spacesBlockTitle">{space.name}</div>
-                <div className="spacesBlockContent">
+                <h3 className="spacesBlockTitle">{space.name}</h3>
+                <address className="spacesBlockContent">
                   {space.address} {space.city}, {space.state} {space.zipcode}
-                </div>
+                </address>
               </Link>
             ))}
           </div>

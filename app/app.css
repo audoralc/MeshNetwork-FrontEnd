@@ -22,6 +22,7 @@ h4,
 h5 {
   padding-top: 15px;
   padding-bottom: 15px;
+  font-weight: 500;
 }
 
 body {
@@ -32,6 +33,10 @@ a {
   color: #ff4d58;
   text-decoration: none;
   font-weight: 500;
+}
+
+address {
+  display: inline-block;
 }
 
 button,
@@ -215,7 +220,7 @@ textarea {
   background: #261e1e;
   height: 100px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   color: #bbbbbb;
