@@ -149,7 +149,7 @@ export default class Challenges extends React.PureComponent {
               </div>
 
               <div className="challenges_feedContainer">
-                <div className="challenges_feedHeader">Questions</div>
+                <h3 className="challenges_feedHeader">Questions</h3>
                 <div className="challenges_questionContainer">
                   {this.state.questions.map((q, i) => (
                     <Link
@@ -160,6 +160,7 @@ export default class Challenges extends React.PureComponent {
                       <div className="challenges_questionHeader">
                         <div className="challenges_questionAvatar">
                           <img
+                            alt=""
                             className="challenges_questionAvatarImg"
                             src={q.avatar}
                           />
@@ -193,7 +194,7 @@ export default class Challenges extends React.PureComponent {
               </div>
 
               <div className="challenges_feedContainer">
-                <h3 className="challenges_feedHeader">Teams</h3>
+                <div className="challenges_feedHeader">Teams</div>
                 {this.state.teams.map((t, i) => (
                   <Link
                     to={"/Challenges/team/" + t.id}
@@ -208,7 +209,7 @@ export default class Challenges extends React.PureComponent {
                       />
                     </div>
                     <div className="challenges_feedInfo">
-                      <div className="challenges_feedTitle">{t.teamName}</div>
+                      <h4 className="challenges_feedTitle">{t.teamName}</h4>
                       <div
                         className="challenges_feedContent"
                         dangerouslySetInnerHTML={{ __html: t.teamContent }}
