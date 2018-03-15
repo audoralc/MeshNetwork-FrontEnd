@@ -92,17 +92,17 @@ export default class EventDetail extends React.PureComponent {
   renderLocation = () => {
     if (!this.state.event.address) {
       return (
-        <div className="homeHeaderContentSubtitle" style={{ color: "#FFFFFF" }}>
+        <h3 className="homeHeaderContentSubtitle" style={{ color: "#FFFFFF" }}>
           {this.state.workSpace.address} {this.state.workSpace.city},{" "}
           {this.state.workSpace.state} {this.state.workSpace.zipcode}
-        </div>
+        </h3>
       );
     } else {
       return (
-        <div className="homeHeaderContentSubtitle" style={{ color: "#FFFFFF" }}>
+        <h3 className="homeHeaderContentSubtitle" style={{ color: "#FFFFFF" }}>
           {this.state.event.address}, {this.state.event.city},{" "}
           {this.state.event.state}
-        </div>
+        </h3>
       );
     }
   };
@@ -111,7 +111,7 @@ export default class EventDetail extends React.PureComponent {
     if (this.state.challenges.length != 0) {
       return (
         <div className="eventDetailSection">
-          <div className="eventDetailSectionTitle">Challenges</div>
+          <h4 className="eventDetailSectionTitle">Challenges</h4>
           <div className="eventDetailSectionContent">
             <div className="eventDetailUsersList">
               {this.state.challenges.map((challenge, i) => (
@@ -125,9 +125,9 @@ export default class EventDetail extends React.PureComponent {
                     src={challenge.challengeImage}
                     style={{ width: "100px", height: "100px" }}
                   />
-                  <div style={{ marginTop: "10px", textAlign: "center" }}>
+                  <h5 style={{ marginTop: "10px", textAlign: "center" }}>
                     {challenge.challengeTitle}
-                  </div>
+                  </h5>
                 </Link>
               ))}
             </div>
@@ -215,14 +215,14 @@ export default class EventDetail extends React.PureComponent {
         <header style={{ background: "#FFFFFF" }}>
           <Header space={this.props.spaceName} />
           <div className="eventDetailBanner" style={{ background: "#ff4d58" }}>
-            <h3 className="homeHeaderContentTitle">{this.state.event.title}</h3>
+            <h2 className="homeHeaderContentTitle">{this.state.event.title}</h2>
             {this.renderLocation()}
           </div>
         </header>
 
         <main className="eventDetailMain">
           <div className="spaceSignUpUser">
-            <div className="spaceSignUpTitle">Event Location</div>
+            <h4 className="spaceSignUpTitle">Event Location</h4>
             {workSpace &&
               !event.lon && (
                 <MapLocal
@@ -284,7 +284,7 @@ export default class EventDetail extends React.PureComponent {
 
           <div className="spaceSignUpContainer">
             <div className="eventDetailSection">
-              <div className="eventDetailSectionTitle">Description</div>
+              <h4 className="eventDetailSectionTitle">Description</h4>
               <div className="eventDetailSectionContent">
                 <div
                   dangerouslySetInnerHTML={{
@@ -333,7 +333,7 @@ export default class EventDetail extends React.PureComponent {
               </div>
             </div>
             <div className="eventDetailSection">
-              <div className="eventDetailSectionTitle">Time & Days</div>
+              <h4 className="eventDetailSectionTitle">Time & Days</h4>
               <div className="eventDetailSectionContent">
                 <div className="eventDetailDates">
                   {this.state.dates.map((date, i) => (
@@ -372,7 +372,7 @@ export default class EventDetail extends React.PureComponent {
             </div>
             {this.renderChallenges()}
             <div className="eventDetailSection">
-              <div className="eventDetailSectionTitle">Organizers</div>
+              <h4 className="eventDetailSectionTitle">Organizers</h4>
               <div className="eventDetailSectionContent">
                 <div className="eventDetailUsersList">
                   {this.state.organizers.map((organizer, i) => (
@@ -394,7 +394,7 @@ export default class EventDetail extends React.PureComponent {
               </div>
             </div>
             <div className="eventDetailSection">
-              <div className="eventDetailSectionTitle">Sponsors</div>
+              <h4 className="eventDetailSectionTitle">Sponsors</h4>
               <div className="eventDetailSectionContent">
                 <div className="eventDetailUsersList">
                   {this.state.sponsors.map((sponsor, i) => (
@@ -431,8 +431,9 @@ export default class EventDetail extends React.PureComponent {
         </main>
 
         <footer className="homeFooterContainer">
-          Copyright © 2018 theClubhou.se • 540 Telfair Street • Tel: (706)
-          723-5782
+          Copyright © 2018 theClubhou.se
+          <address style={{ margin: "0 .5em" }}>• 540 Telfair Street •</address>
+          Tel: (706) 723-5782
         </footer>
 
         <Snackbar

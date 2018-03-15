@@ -56,9 +56,11 @@ export default class Kiosk extends React.PureComponent {
   };
 
   getProfile = () => {
-    fetch("https://innovationmesh.com/api/workspace/" + this.props.match.params.id, {
-      method: "GET"
-    }
+    fetch(
+      "https://innovationmesh.com/api/workspace/" + this.props.match.params.id,
+      {
+        method: "GET"
+      }
     )
       .then(response => response.json())
       .then(json => {
@@ -90,7 +92,9 @@ export default class Kiosk extends React.PureComponent {
   };
 
   getUpcomingEvents = () => {
-    fetch("https://innovationmesh.com/api/upcoming/" + this.props.match.params.id)
+    fetch(
+      "https://innovationmesh.com/api/upcoming/" + this.props.match.params.id
+    )
       .then(response => response.json())
       .then(json => {
         this.setState({
@@ -177,12 +181,10 @@ export default class Kiosk extends React.PureComponent {
             marginTop: "20px"
           }}
         >
-          <div className="kioskTitle">Thanks for Checking-In!</div>
+          <h2 className="kioskTitle">Thanks for Checking-In!</h2>
 
           {!!events.length && (
-            <div className="kioskSubtitle">
-              Be sure to check out these Events
-            </div>
+            <h4 className="kioskSubtitle">Be sure to check out these Events</h4>
           )}
 
           {!!events.length &&
@@ -196,7 +198,7 @@ export default class Kiosk extends React.PureComponent {
                 <div className="eventBlock">
                   <div className="eventBlockImage" />
                   <div className="eventBlockInfo">
-                    <div className="eventBlockTitle">{event.title}</div>
+                    <h5 className="eventBlockTitle">{event.title}</h5>
                     <div className="eventBlockDesc">
                       {moment(event.start).format("MMMM, Do, YYYY")}
                     </div>
@@ -311,7 +313,7 @@ export default class Kiosk extends React.PureComponent {
                 <div className="spaceEventBlockImage">
                   <img alt="" src={event.image} />
                 </div>
-                <div className="spaceEventBlockTitle">{event.title}</div>
+                <h5 className="spaceEventBlockTitle">{event.title}</h5>
                 <div className="spaceEventBlockContent">{event.start}</div>
               </div>
             ))}
@@ -329,7 +331,7 @@ export default class Kiosk extends React.PureComponent {
             }}
           >
             There are no Events scheduled for Today.
-              </div>
+          </div>
         );
       }
     }
@@ -360,45 +362,49 @@ export default class Kiosk extends React.PureComponent {
               marginBottom: "15px" */
             }}
           />
-          <div className="kioskTitle">Welcome to {this.state.workspace.name}</div>
-          <div className="kioskSubtitle">Check-In with Us!</div>
+          <h2 className="kioskTitle">Welcome to {this.state.workspace.name}</h2>
+          <h3 className="kioskSubtitle">Check-In with Us!</h3>
           <div className="kioskContent">
-              <Select
-                  name="form-field-name"
-                  value={this.state.loggedInUser.value}
-                  placeholder="Select your Name"
-                  arrowRenderer={null}
-                  clearable={true}
-                  openOnClick={false}
-                  onChange={this.handleNameInputChange}
-                  options={this.state.users}
-              />
-              <Link to={"/join/" + this.state.workspace.slug} style={{ marginTop: "30px", width: "10%" }}>
-                  <FlatButton style={{
-                      width: "100%",
-                      background: "#ff4d58",
-                      paddingTop: "10px",
-                      paddingBottom: "10px",
-                      color: "#FFFFFF",
-                      fontWeight: "bold"
-                      }}
-                  >
-                      Don't See Your Name? Join Our Mesh Network!
-                  </FlatButton>
-              </Link>
-            </div>
-
-            {this.renderReasons()}
-            {this.renderToday()}
-
-            {this.renderComplete()}
-
-            <Snackbar
-              open={this.state.snack}
-              message={this.state.msg}
-              autoHideDuration={3000}
-              onClose={this.handleRequestClose}
+            <Select
+              name="form-field-name"
+              value={this.state.loggedInUser.value}
+              placeholder="Select your Name"
+              arrowRenderer={null}
+              clearable={true}
+              openOnClick={false}
+              onChange={this.handleNameInputChange}
+              options={this.state.users}
             />
+            <Link
+              to={"/join/" + this.state.workspace.slug}
+              style={{ marginTop: "30px", width: "10%" }}
+            >
+              <FlatButton
+                style={{
+                  width: "100%",
+                  background: "#ff4d58",
+                  paddingTop: "10px",
+                  paddingBottom: "10px",
+                  color: "#FFFFFF",
+                  fontWeight: "bold"
+                }}
+              >
+                Don't See Your Name? Join Our Mesh Network!
+              </FlatButton>
+            </Link>
+          </div>
+
+          {this.renderReasons()}
+          {this.renderToday()}
+
+          {this.renderComplete()}
+
+          <Snackbar
+            open={this.state.snack}
+            message={this.state.msg}
+            autoHideDuration={3000}
+            onClose={this.handleRequestClose}
+          />
         </main>
       </div>
     );

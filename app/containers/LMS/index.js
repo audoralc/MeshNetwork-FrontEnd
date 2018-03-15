@@ -89,7 +89,7 @@ export default class LMS extends React.PureComponent {
         />
         <Header space={this.props.spaceName} />
         <header className="lmsHomeHeader">
-          <div className="lmsHomeHeaderHeading">Let The Learning Begin</div>
+          <h2 className="lmsHomeHeaderHeading">Let The Learning Begin</h2>
           <div className="lmsHomeHeaderText">
             <p>
               Welcome to the resource & learning destination for all students!
@@ -101,24 +101,36 @@ export default class LMS extends React.PureComponent {
 
         <main className="lmsHomeMain">
           <div className="lmsHomeMainContainer">
-            <div className="lmsHomeMainHeading">Latest Courses</div>
+            <h3 className="lmsHomeMainHeading">Latest Courses</h3>
             <div className="lmsHomeMainList">
               {this.state.courses.map((course, index) => (
-                <Link className="lmsHomeMainBlock" key={`LMSlmsMainBlock${index}`} to={'/LMS/Course/'+course.id}>
-                <Card style={{height:'385px'}}>
-                  <CardMedia
-                    style={{width:'100%', height:'240px', overflow:'hidden', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}
-                    image={course.courseImage}
-                  />
-                  <CardContent>
-                    <Typography type="headline" component="h2">
-                      {course.courseName}
-                    </Typography>
-                    <Typography component="p">
-                      {/*course.courseSummary*/}
-                    </Typography>
-                  </CardContent>
-                </Card>
+                <Link
+                  className="lmsHomeMainBlock"
+                  key={`LMSlmsMainBlock${index}`}
+                  to={"/LMS/Course/" + course.id}
+                >
+                  <Card style={{ height: "385px" }}>
+                    <CardMedia
+                      style={{
+                        width: "100%",
+                        height: "240px",
+                        overflow: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center"
+                      }}
+                      image={course.courseImage}
+                    />
+                    <CardContent>
+                      <Typography type="headline" component="h2">
+                        {course.courseName}
+                      </Typography>
+                      <Typography component="p">
+                        {/*course.courseSummary*/}
+                      </Typography>
+                    </CardContent>
+                  </Card>
                 </Link>
               ))}
             </div>
@@ -143,45 +155,45 @@ export default class LMS extends React.PureComponent {
               </FlatButton>
             </Link>
           </div>
-          <div className="lmsHomeCallToAction">
+          <h3 className="lmsHomeCallToAction">
             Get smart about your future. Join our learning community today!
-          </div>
+          </h3>
           <div className="lmsHomeBuzz">
             <div className="lmsHomeBuzzBlock">
-              <div className="lmsHomeBuzzHeader">Chill Out and Learn</div>
-              <div className="lmsHomeBuzzContent">
+              <h4 className="lmsHomeBuzzHeader">Chill Out and Learn</h4>
+              <p className="lmsHomeBuzzContent">
                 Take courses during your lunch break, post workout, from home,
                 whenever, wherever. Courses are conveniently available 24/7/365.
                 #ClassOnTheCouch
-              </div>
+              </p>
             </div>
             <div className="lmsHomeBuzzBlock">
-              <div className="lmsHomeBuzzHeader">Fuel Your Future</div>
-              <div className="lmsHomeBuzzContent">
+              <h4 className="lmsHomeBuzzHeader">Fuel Your Future</h4>
+              <p className="lmsHomeBuzzContent">
                 From coding to design to business, all of today’s in-demand
                 skills are here. With more courses added daily, your resume will
                 never look better.
-              </div>
+              </p>
             </div>
             <div className="lmsHomeBuzzBlock">
-              <div className="lmsHomeBuzzHeader">Stay Sharp</div>
-              <div className="lmsHomeBuzzContent">
+              <h4 className="lmsHomeBuzzHeader">Stay Sharp</h4>
+              <p className="lmsHomeBuzzContent">
                 All courses include LIFETIME access so you can always drop back
                 in for a refresher.
-              </div>
+              </p>
             </div>
             <div className="lmsHomeBuzzBlock">
-              <div className="lmsHomeBuzzHeader">Don&#39;t Worry, Be Happy</div>
-              <div className="lmsHomeBuzzContent">
+              <h4 className="lmsHomeBuzzHeader">Don&#39;t Worry, Be Happy</h4>
+              <p className="lmsHomeBuzzContent">
                 We're committed to providing the best online learning experience
                 on the Web! If you experience an issue, contact us within 7 days
                 and we'll be happy to help.
-              </div>
+              </p>
             </div>
           </div>
-          <div className="lmsJoinCallToAction">
+          <h3 className="lmsJoinCallToAction">
             Still Have More Questions? Feel Free to Contact Us!
-          </div>
+          </h3>
         </main>
       </div>
     );

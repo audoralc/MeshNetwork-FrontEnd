@@ -48,71 +48,63 @@ export default class SpaceProfile extends React.PureComponent {
         method: "GET"
       }
     )
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
-      .then(
-        (json) => {
-          this.setState(
-            {
-              spaceProfile: json
-            },
-            () => {
-              this.getSpaceEvents(this.state.spaceProfile.id);
-              this.getUsers(this.state.spaceProfile.id);
-              this.getPhotoGallery(this.state.spaceProfile.id);
-            }
-          );
-        }
-      );
+      .then(json => {
+        this.setState(
+          {
+            spaceProfile: json
+          },
+          () => {
+            this.getSpaceEvents(this.state.spaceProfile.id);
+            this.getUsers(this.state.spaceProfile.id);
+            this.getPhotoGallery(this.state.spaceProfile.id);
+          }
+        );
+      });
   };
 
   getSpaceEvents = id => {
     fetch("https://innovationmesh.com/api/spaceEvents/" + id, {
       method: "GET"
     })
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
-      .then(
-        (json) => {
-          this.setState({
-            events: json
-          });
-        }
-      );
+      .then(json => {
+        this.setState({
+          events: json
+        });
+      });
   };
 
   getUsers = id => {
     fetch("https://innovationmesh.com/api/organizers/space/" + id, {
       method: "GET"
     })
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
-      .then(
-        (json) => {
-          this.setState({
-            users: json
-          });
-        }
-      );
+      .then(json => {
+        this.setState({
+          users: json
+        });
+      });
   };
 
   getPhotoGallery = id => {
     fetch("https://innovationmesh.com/api/photos/" + id, {
       method: "GET"
     })
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
-      .then(
-        (json) => {
-          this.setState({
-            photoGallery: json.photos
-          });
-        }
-      );
+      .then(json => {
+        this.setState({
+          photoGallery: json.photos
+        });
+      });
   };
 
   renderDashboard = () => {
@@ -154,7 +146,7 @@ export default class SpaceProfile extends React.PureComponent {
               background: "#FFFFFF",
               color: "#ff4d58",
               width: "100%",
-              marginTop:'15px',
+              marginTop: "15px",
               border: "1px solid #CCCCCC"
             }}
           >
@@ -187,7 +179,7 @@ export default class SpaceProfile extends React.PureComponent {
     // console.log(event);
     // var backgroundColor = "#ff4d58";
     var style = {
-      background: '#ff4d58',
+      background: "#ff4d58",
       fontWeight: "bold",
       borderRadius: "0px",
       border: "none",
@@ -244,12 +236,12 @@ export default class SpaceProfile extends React.PureComponent {
                   />{" "}
                   Home{" "}
                 </div>
-                <div className="spaceMainTitle">
+                <h2 className="spaceMainTitle">
                   {this.state.spaceProfile.name}
-                </div>
-                <div className="spaceMainSlogan">
+                </h2>
+                <h3 className="spaceMainSlogan">
                   {this.state.spaceProfile.city}&#39;s Collaborative Workspace
-                </div>
+                </h3>
                 <div className="spaceContact">
                   <a
                     href={this.state.spaceProfile.facebook}
@@ -382,7 +374,10 @@ export default class SpaceProfile extends React.PureComponent {
                   <div className="spaceMembersTitle">Organizers</div>
                   <div className="spaceMembersContent">
                     {this.state.users.map((u, i) => (
-                      <div className="spaceProfileUser" key={`SpaceProfileUser${i}`}>
+                      <div
+                        className="spaceProfileUser"
+                        key={`SpaceProfileUser${i}`}
+                      >
                         <img
                           alt=""
                           className="spaceProfileUserAvatar"
@@ -434,8 +429,9 @@ export default class SpaceProfile extends React.PureComponent {
         </main>
 
         <footer className="homeFooterContainer">
-          Copyright © 2018 theClubhou.se • 540 Telfair Street • Tel: (706)
-          723-5782
+          Copyright © 2018 theClubhou.se
+          <address style={{ margin: "0 .5em" }}>• 540 Telfair Street •</address>
+          Tel: (706) 723-5782
         </footer>
       </div>
     );

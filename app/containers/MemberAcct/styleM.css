@@ -1,6 +1,12 @@
 /* MemberAcct Mobile Styles */
 
 @media (max-width: 425px) {
+  .acctBody {
+    margin-top: 0;
+  }
+  .acctMainInfo {
+    padding-top: 0;
+  }
   .acctProfilePicture {
     margin: 0 auto;
   }

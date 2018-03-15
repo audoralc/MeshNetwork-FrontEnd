@@ -67,8 +67,8 @@ export default class Discover extends React.PureComponent {
   showCategories = categoryID => {
     fetch(
       "https://innovationmesh.com/api/showCategory/" +
-      categoryID +
-      "/Challenges",
+        categoryID +
+        "/Challenges",
       {
         method: "GET"
       }
@@ -88,7 +88,7 @@ export default class Discover extends React.PureComponent {
     if (this.state.currentPage !== this.state.lastPage) {
       fetch(
         "https://innovationmesh.com/api/getChallenges/30?page=" +
-        this.state.nextPage,
+          this.state.nextPage,
         {
           method: "GET"
         }
@@ -150,18 +150,21 @@ export default class Discover extends React.PureComponent {
       <Link
         to="/"
         style={{
-          color: "#000000"
+          color: "#000000",
+          fontSize: "20px"
         }}
       >
-        Mesh
-        <span
-          style={{
-            color: "#ff4d58"
-          }}
-        >
-          Network
-        </span>
-        &nbsp;- Challenges
+        <h1>
+          Mesh
+          <span
+            style={{
+              color: "#ff4d58"
+            }}
+          >
+            Network
+          </span>
+          &nbsp;- Challenges
+        </h1>
       </Link>
     );
 
@@ -230,7 +233,7 @@ export default class Discover extends React.PureComponent {
                 style={{ margin: "30px 0" }}
               />
               <div className="challenges_feedContainer">
-                <div className="challenges_feedHeader">Challenges</div>
+                <h3 className="challenges_feedHeader">Challenges</h3>
                 <div className="challenges_feedList">
                   {this.state.challenges.map((u, i) => (
                     <Link
@@ -246,9 +249,9 @@ export default class Discover extends React.PureComponent {
                         />
                       </div>
                       <div className="challenges_feedInfo">
-                        <div className="challenges_feedTitle">
+                        <h4 className="challenges_feedTitle">
                           {u.challengeTitle}
-                        </div>
+                        </h4>
                         <div
                           className="challenges_feedContent"
                           dangerouslySetInnerHTML={{

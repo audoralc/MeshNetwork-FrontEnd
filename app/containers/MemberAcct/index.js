@@ -41,7 +41,7 @@ const MenuProps = {
 export default class MemberAcct extends React.PureComponent {
   state = {
     token: localStorage.getItem("token"),
-    user: JSON.parse(localStorage.getItem('user')),
+    user: JSON.parse(localStorage.getItem("user")),
     name: "",
     title: "",
     avatar: "",
@@ -76,13 +76,13 @@ export default class MemberAcct extends React.PureComponent {
           this.loadSkills();
           this.setState({ loading: false });
         } else if (authorized.error) {
-          localStorage.removeItem('user');
-          localStorage.removeItem('token');
-          this.props.history.push('/signin');
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          this.props.history.push("/signin");
         }
       } else {
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
         this.props.history.push("/");
       }
     }
@@ -97,9 +97,7 @@ export default class MemberAcct extends React.PureComponent {
       .then(json => {
         this.setState({ loadedTags: json });
       })
-      .catch(error => {
-
-      });
+      .catch(error => {});
   };
 
   handleRequestClose = () => {
@@ -110,11 +108,9 @@ export default class MemberAcct extends React.PureComponent {
   };
 
   handleInputChange = name => event => {
-    this.setState(
-      {
-        [name]: event.target.value
-      }
-    );
+    this.setState({
+      [name]: event.target.value
+    });
   };
 
   handleSkillTags = event => {
@@ -189,7 +185,8 @@ export default class MemberAcct extends React.PureComponent {
           },
           () => {
             console.log(this.state);
-          });
+          }
+        );
       });
   };
 
@@ -220,7 +217,7 @@ export default class MemberAcct extends React.PureComponent {
         if (json.success) {
           this.showSnack(json.success);
           setTimeout(() => {
-            this.props.history.push(`/user/${this.state.user.id}`)
+            this.props.history.push(`/user/${this.state.user.id}`);
           }, 2000);
         } else {
           this.showSnack(json.error);
@@ -253,197 +250,198 @@ export default class MemberAcct extends React.PureComponent {
     return this.state.loading ? (
       <Spinner loading={this.state.loading} />
     ) : (
-        <div className="accountContainer">
-          <Helmet
-            title="MemberAcct"
-            meta={[{ name: "description", content: "Description of MemberAcct" }]}
-          />
-          <header style={{ background: "#FFFFFF" }}>
-            <Header space={this.props.spaceName} />
-            <div className="acctBanner">
-              <div className="homeHeaderContentTitle">Update Your Profile</div>
-              <div className="homeHeaderContentSubtitle">
-                Let everyone know what you&#39;re all about.
-            </div>
-            </div>
-          </header>
+      <div className="accountContainer">
+        <Helmet
+          title="MemberAcct"
+          meta={[{ name: "description", content: "Description of MemberAcct" }]}
+        />
+        <header style={{ background: "#FFFFFF" }}>
+          <Header space={this.props.spaceName} />
+          <div className="acctBanner">
+            <h2 className="homeHeaderContentTitle">Update Your Profile</h2>
+            <h3 className="homeHeaderContentSubtitle">
+              Let everyone know what you&#39;re all about.
+            </h3>
+          </div>
+        </header>
 
-          <main>
-            <div className="acctBody">
-              <div className="acctMainInfo">
-                <div className="acctProfileInfo">
-                  <div className="acctProfileMain">
-                    <h3> Profile Information </h3>
+        <main>
+          <div className="acctBody">
+            <div className="acctMainInfo">
+              <div className="acctProfileInfo">
+                <div className="acctProfileMain">
+                  <h4> Profile Information </h4>
 
-                    <TextField
-                      label={"Name"}
-                      margin="normal"
-                      value={name}
-                      placeholder={name}
-                      onChange={this.handleInputChange("name")}
-                    />
-                    <TextField
-                      label={"Title"}
-                      margin="normal"
-                      value={title}
-                      placeholder={title}
-                      onChange={this.handleInputChange("title")}
-                    />
-                    {/*<TextField
+                  <TextField
+                    label={"Name"}
+                    margin="normal"
+                    value={name}
+                    placeholder={name}
+                    onChange={this.handleInputChange("name")}
+                  />
+                  <TextField
+                    label={"Title"}
+                    margin="normal"
+                    value={title}
+                    placeholder={title}
+                    onChange={this.handleInputChange("title")}
+                  />
+                  {/*<TextField
                                         label={'E-mail'}
                                         margin='normal'
                                         value={`${this.state.email}`}
                                         onChange={this.handleInputChange('email')}
                                     />*/}
-                  </div>
+                </div>
 
-                  <div className="acctProfilePicture">
-                    {this.renderAvatarPreview()}
-                    <div>
-                      <label style={{ display: "flex", flexDirection: "column" }}>
-                        <FlatButton raised component="span">
-                          Upload
+                <div className="acctProfilePicture">
+                  {this.renderAvatarPreview()}
+                  <div>
+                    <label style={{ display: "flex", flexDirection: "column" }}>
+                      <FlatButton raised component="span">
+                        Upload
                         <input
-                            onChange={this.handleAvatar}
-                            type="file"
-                            style={{ display: "none" }}
-                            accept="image/png, image/jpg, image/jpeg"
-                          />
-                        </FlatButton>
-                      </label>
-                    </div>
+                          onChange={this.handleAvatar}
+                          type="file"
+                          style={{ display: "none" }}
+                          accept="image/png, image/jpg, image/jpeg"
+                        />
+                      </FlatButton>
+                    </label>
                   </div>
                 </div>
-
-                <Divider />
-
-                <div className="acctSocialMediaWrapper">
-                  <h3> Social Media</h3>
-                  <div className="acctSocialMedia">
-                    <TextField
-                      label={"Facebook"}
-                      margin="normal"
-                      value={this.state.facebook}
-                      placeholder={facebook}
-                      onChange={this.handleInputChange("facebook")}
-                    />
-                    <TextField
-                      label={"Twitter"}
-                      margin="normal"
-                      value={twitter}
-                      placeholder={twitter}
-                      onChange={this.handleInputChange("twitter")}
-                    />
-                    <TextField
-                      label={"Instagram"}
-                      margin="normal"
-                      value={instagram}
-                      placeholder={instagram}
-                      onChange={this.handleInputChange("instagram")}
-                    />
-                    <TextField
-                      label={"LinkedIn"}
-                      margin="normal"
-                      value={linkedin}
-                      placeholder={linkedin}
-                      onChange={this.handleInputChange("linkedin")}
-                    />
-                    <TextField
-                      label={"Github"}
-                      margin="normal"
-                      value={github}
-                      placeholder={github}
-                      onChange={this.handleInputChange("github")}
-                    />
-                    <TextField
-                      label={"Behance"}
-                      margin="normal"
-                      value={behance}
-                      placeholder={behance}
-                      onChange={this.handleInputChange("behance")}
-                    />
-                  </div>
-                </div>
-              </div>
-              <Divider />
-
-              <div className="acctTagSelection">
-                <h3> Skills </h3>
-
-                {!!loadedTags.length && (
-                  <FormControl style={{ marginTop: 24, minWidth: "50%" }}>
-                    <InputLabel htmlFor="tags-select">Relevant Tags</InputLabel>
-                    <Select
-                      multiple
-                      value={this.state.selectedTags}
-                      onChange={this.handleSkillTags}
-                      input={<Input id="tag-multiple" />}
-                      renderValue={selected => selected.join(", ")}
-                      MenuProps={MenuProps}
-                    >
-                      {loadedTags.map((tag, key) => (
-                        <MenuItem key={`${key}tag`} value={tag}>
-                          <Checkbox
-                            checked={this.state.selectedTags.indexOf(tag) > -1}
-                          />
-                          <ListItemText primary={tag} />
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                )}
               </div>
 
               <Divider />
 
-              <div className="acctManagement">
-                <h3 style={{ margin: "1em 0" }}> Account Management</h3>
-                <div className="acctChangePassForm">
-                  <h4> Change Password</h4>
-
+              <div className="acctSocialMediaWrapper">
+                <h4> Social Media</h4>
+                <div className="acctSocialMedia">
                   <TextField
-                    label={"New Password"}
+                    label={"Facebook"}
                     margin="normal"
-                    type="password"
-                    style={{ maxWidth: "300px" }}
-                    onChange={this.handleInputChange("password")}
+                    value={this.state.facebook}
+                    placeholder={facebook}
+                    onChange={this.handleInputChange("facebook")}
                   />
-
                   <TextField
-                    label={"Confirm New Password"}
+                    label={"Twitter"}
                     margin="normal"
-                    type="password"
-                    style={{ maxWidth: "300px" }}
-                    onChange={this.handleInputChange("passwordConfirm")}
+                    value={twitter}
+                    placeholder={twitter}
+                    onChange={this.handleInputChange("twitter")}
                   />
-                  <FlatButton
-                    style={{
-                      backgroundColor: "#ff4d58",
-                      padding: "10px",
-                      marginTop: "15px",
-                      color: "#FFFFFF",
-                      fontWeight: "bold"
-                    }}
-                    onClick={this.updateUser}
-                  >
-                    Update User
-                </FlatButton>
+                  <TextField
+                    label={"Instagram"}
+                    margin="normal"
+                    value={instagram}
+                    placeholder={instagram}
+                    onChange={this.handleInputChange("instagram")}
+                  />
+                  <TextField
+                    label={"LinkedIn"}
+                    margin="normal"
+                    value={linkedin}
+                    placeholder={linkedin}
+                    onChange={this.handleInputChange("linkedin")}
+                  />
+                  <TextField
+                    label={"Github"}
+                    margin="normal"
+                    value={github}
+                    placeholder={github}
+                    onChange={this.handleInputChange("github")}
+                  />
+                  <TextField
+                    label={"Behance"}
+                    margin="normal"
+                    value={behance}
+                    placeholder={behance}
+                    onChange={this.handleInputChange("behance")}
+                  />
                 </div>
               </div>
             </div>
-          </main>
+            <Divider />
 
-          <footer className="homeFooterContainer">
-            Copyright © 2018 theClubhou.se • 540 Telfair Street • Tel: (706)
-            723-5782
+            <div className="acctTagSelection">
+              <h4> Skills </h4>
+
+              {!!loadedTags.length && (
+                <FormControl style={{ marginTop: 24, minWidth: "50%" }}>
+                  <InputLabel htmlFor="tags-select">Relevant Tags</InputLabel>
+                  <Select
+                    multiple
+                    value={this.state.selectedTags}
+                    onChange={this.handleSkillTags}
+                    input={<Input id="tag-multiple" />}
+                    renderValue={selected => selected.join(", ")}
+                    MenuProps={MenuProps}
+                  >
+                    {loadedTags.map((tag, key) => (
+                      <MenuItem key={`${key}tag`} value={tag}>
+                        <Checkbox
+                          checked={this.state.selectedTags.indexOf(tag) > -1}
+                        />
+                        <ListItemText primary={tag} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              )}
+            </div>
+
+            <Divider />
+
+            <div className="acctManagement">
+              <h4> Account Management</h4>
+              <div className="acctChangePassForm">
+                <h4> Change Password</h4>
+
+                <TextField
+                  label={"New Password"}
+                  margin="normal"
+                  type="password"
+                  style={{ maxWidth: "300px" }}
+                  onChange={this.handleInputChange("password")}
+                />
+
+                <TextField
+                  label={"Confirm New Password"}
+                  margin="normal"
+                  type="password"
+                  style={{ maxWidth: "300px" }}
+                  onChange={this.handleInputChange("passwordConfirm")}
+                />
+                <FlatButton
+                  style={{
+                    backgroundColor: "#ff4d58",
+                    padding: "10px",
+                    marginTop: "15px",
+                    color: "#FFFFFF",
+                    fontWeight: "bold"
+                  }}
+                  onClick={this.updateUser}
+                >
+                  Update User
+                </FlatButton>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer className="homeFooterContainer">
+          Copyright © 2018 theClubhou.se
+          <address style={{ margin: "0 .5em" }}>• 540 Telfair Street •</address>
+          Tel: (706) 723-5782
         </footer>
-          <Snackbar
-            open={this.state.snack}
-            message={this.state.msg}
-            autoHideDuration={3000}
-            onClose={this.handleRequestClose}
-          />
-        </div>
-      );
+        <Snackbar
+          open={this.state.snack}
+          message={this.state.msg}
+          autoHideDuration={3000}
+          onClose={this.handleRequestClose}
+        />
+      </div>
+    );
   }
 }
