@@ -14,6 +14,7 @@ import MdAssessment from "react-icons/lib/md/assessment";
 import MdSchool from "react-icons/lib/md/school";
 import MdPerson from "react-icons/lib/md/person";
 import MdExitToApp from "react-icons/lib/md/exit-to-app";
+import MdHome from "react-icons/lib/md/home";
 // import Divider from "material-ui/Divider";
 
 import Menu, { MenuItem } from "material-ui/Menu";
@@ -290,35 +291,84 @@ export default class Header extends React.PureComponent {
   renderMyCourses = () => {
     if (this.state.token) {
       return (
-        <Link to={'/LMS/MyLMS'}><MenuItem style={{ margin: '0' }} onClick={this.handleEducationMenuClose}>My Courses</MenuItem></Link>
-      )
+        <Link to={"/LMS/MyLMS"}>
+          <MenuItem
+            style={{ margin: "0" }}
+            onClick={this.handleEducationMenuClose}
+          >
+            My Courses
+          </MenuItem>
+        </Link>
+      );
     } else {
       return (
-        <Link to={'/signIn'}><MenuItem style={{ margin: '0' }} onClick={this.handleEducationMenuClose}>My Courses</MenuItem></Link>
-      )
+        <Link to={"/signIn"}>
+          <MenuItem
+            style={{ margin: "0" }}
+            onClick={this.handleEducationMenuClose}
+          >
+            My Courses
+          </MenuItem>
+        </Link>
+      );
     }
-  }
+  };
 
   renderSignOut = () => {
     if (this.state.user && this.state.token) {
-      let space = 'Workspace';
+      let space = "Workspace";
       if (this.props.space) {
-        space = this.props.space
+        space = this.props.space;
       }
 
       return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <Link to={'/space/' + this.state.user.spaceID} className="navButton" style={{ color: this.state.textColor }}>{space}</Link>
-          <Link to={'/user/' + this.state.user.id} className="navButton" style={{ color: this.state.textColor }}>Profile</Link>
-          <div onClick={this.signOut} className="navButton" style={{ color: this.state.textColor }}>Sign Out</div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <Link
+            to={"/space/" + this.state.user.spaceID}
+            className="navButton"
+            style={{ color: this.state.textColor }}
+          >
+            <MdHome className="navIcon" />
+            <span className="navLink"> {space} </span>
+          </Link>
+          <Link
+            to={"/user/" + this.state.user.id}
+            className="navButton"
+            style={{ color: this.state.textColor }}
+          >
+            <MdPerson className="navIcon" />
+            <span className="navLink">Profile</span>
+          </Link>
+          <div
+            onClick={this.signOut}
+            className="navButton"
+            id="signOutButton"
+            style={{ color: this.state.textColor }}
+          >
+            Sign Out
+          </div>
         </div>
-      )
+      );
     } else {
       return (
-        <Link to={'/signIn'} className="navButton" style={{ background: '#ff4d58', color: '#FFFFFF', paddingTop: '5px', paddingBottom: '5px', paddingLeft: '10px', paddingRight: '10px', borderRadius: '3px' }}>Sign In</Link>
-      )
+        <Link
+          to={"/signIn"}
+          className="navButton"
+          style={{
+            background: "#ff4d58",
+            color: "#FFFFFF",
+            paddingTop: "5px",
+            paddingBottom: "5px",
+            paddingLeft: "10px",
+            paddingRight: "10px",
+            borderRadius: "3px"
+          }}
+        >
+          Sign In
+        </Link>
+      );
     }
-  }
+  };
 
   render() {
     let headerTitle = (
@@ -357,14 +407,14 @@ export default class Header extends React.PureComponent {
       >
         {this.state.redirect}
         <div className="navBar">
-          <div
+          <h1
             className="siteName"
             style={{
               color: this.state.textColor
             }}
           >
             {headerTitle}
-          </div>
+          </h1>
 
           <nav className="nav">
             <Link

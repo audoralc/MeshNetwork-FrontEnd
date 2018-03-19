@@ -4,19 +4,18 @@
   .mainProfile {
     height: 90vh;
     margin-top: 10vh;
+    min-height: 600px;
   }
   .profileHeader {
     max-width: 80%;
     margin: 0 auto;
   }
-
   .profileContact {
     max-width: 75%;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-between;
   }
-
   .profileSocialList {
     margin-top: 15px;
     flex-wrap: wrap;
@@ -27,7 +26,6 @@
   .profileHeader {
     max-width: 90%;
   }
-
   .profileContact {
     max-width: 75%;
   }

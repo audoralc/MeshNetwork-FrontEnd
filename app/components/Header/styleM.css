@@ -65,6 +65,16 @@
   }
 }
 
+@media (max-width: 1024px) and (min-width: 601px) and (orientation: landscape) {
+  #signOutButton,
+  .navLink {
+    font-size: 0.75em;
+  }
+  .siteName {
+    padding-right: 24px;
+  }
+}
+
 @media (max-width: 1024px) and (min-width: 601px) and (orientation: portrait) {
   .logoNav {
     color: #ffffff;
@@ -72,11 +82,18 @@
   .navIcon {
     display: flex;
     flex-direction: row;
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
     margin: 0 10px;
   }
   .navLink {
     display: none;
+  }
+  #signOutButton {
+    font-size: 0.75em;
+  }
+  .siteName {
+    font-size: 1.5em;
+    padding-right: 24px;
   }
 }
