@@ -60,6 +60,9 @@
     flex-direction: column;
     align-content: center;
   }
+  .navProfLink {
+    color: #000;
+  }
   #signOutLink {
     margin-left: -0.45em;
   }

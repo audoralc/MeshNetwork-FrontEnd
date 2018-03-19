@@ -6,6 +6,7 @@
 
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
+import FlatButton from "material-ui/Button";
 import Bars from "react-icons/lib/fa/bars";
 import MdExplore from "react-icons/lib/md/explore";
 import MdInfoOutline from "react-icons/lib/md/info-outline";
@@ -283,6 +284,43 @@ export default class Header extends React.PureComponent {
             <MdExitToApp className="navIcon" />
             <span className="navProfLink">Sign Out</span>
           </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="navMobileSignIn">
+          <Link to={"/signIn"} className="navMenuSignIn">
+            <FlatButton
+              style={{
+                width: "300px",
+                background: "#ff4d58",
+                marginTop: "15px",
+                paddingTop: "10px",
+                paddingBottom: "10px",
+                color: "#FFFFFF",
+                fontWeight: "bold",
+                border: "2px solid #ff4d58"
+              }}
+            >
+              Sign In
+            </FlatButton>
+          </Link>
+          <Link to={"/spaces"} className="navMenuSignUp">
+            <FlatButton
+              style={{
+                width: "300px",
+                background: "#FFFFFF",
+                marginTop: "30px",
+                paddingTop: "15px",
+                paddingBottom: "10px",
+                color: "#ff4d58",
+                fontWeight: "bold",
+                border: "2px solid #ff4d58"
+              }}
+            >
+              Sign Up
+            </FlatButton>
+          </Link>
         </div>
       );
     }
