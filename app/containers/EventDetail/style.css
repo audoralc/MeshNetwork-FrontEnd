@@ -159,6 +159,16 @@
   margin: 20px auto;
 }
 
+#eventMapDetail {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  padding: 20px;
+  margin-top: -70px;
+  background: #ffffff;
+}
+
 .eventRegistration {
   text-align: center;
 }

@@ -6,8 +6,13 @@
     width: 100%;
   }
 
+  .homeHeaderContentTitle {
+    font-size: 2em;
+  }
+
   .eventDetailBanner {
     height: auto;
+    min-height: 40vh;
   }
 
   .eventDetailsDateBlock {
@@ -16,6 +21,14 @@
   }
   .eventDetailSignUpRow {
     display: flex;
+    flex-direction: column;
+  }
+
+  .eventDetailUsersBlock {
+    width: 30%;
+  }
+
+  .homeFooterContainer {
     flex-direction: column;
   }
 }

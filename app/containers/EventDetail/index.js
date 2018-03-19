@@ -221,8 +221,8 @@ export default class EventDetail extends React.PureComponent {
         </header>
 
         <main className="eventDetailMain">
-          <div className="spaceSignUpUser">
-            <h4 className="spaceSignUpTitle">Event Location</h4>
+          <div className="eventDetailSection" id="eventMapDetail">
+            <h4 className="eventDetailSectionTitle">Event Location</h4>
             {workSpace &&
               !event.lon && (
                 <MapLocal

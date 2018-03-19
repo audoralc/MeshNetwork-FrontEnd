@@ -1,6 +1,10 @@
 /* UserProfile Mobile Styles */
 
 @media (max-width: 425px) {
+  .mainProfile {
+    height: 90vh;
+    margin-top: 10vh;
+  }
   .profileHeader {
     max-width: 80%;
     margin: 0 auto;
