@@ -310,13 +310,11 @@ export default class SpaceSignUp extends React.PureComponent {
           {this.renderLoading()}
           <Header space={this.props.spaceName} />
           <div className="spaceSignUpBanner">
-            <div className="homeHeaderContentTitle">
-              Add your CoWorking Space
-            </div>
-            <div className="homeHeaderContentSubtitle">
+            <h2 className="homeHeaderContentTitle">Add your CoWorking Space</h2>
+            <h3 className="homeHeaderContentSubtitle">
               Join our Mesh Network of Innovation
-            </div>
-          </div>9
+            </h3>
+          </div>
         </header>
 
         <main className="spaceSignUpMain">
