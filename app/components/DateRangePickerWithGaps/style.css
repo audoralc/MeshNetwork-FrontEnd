@@ -1,11 +1,10 @@
 /* div.singleDpCon:first-child { */
-  /* margin-top: 32px; */
-  /* margin-bottom: 0.01px; */
+/* margin-top: 32px; */
+/* margin-bottom: 0.01px; */
 /* } */
 
 div.singleDpCon {
-  /* margin-bottom:  32px; */
-  margin-top: 32px;
+  margin: 15px 0;
 }
 div.singleDpCon label.singleDpConStartLabel {
   margin-bottom: 8px;
@@ -31,9 +30,9 @@ input::-webkit-clear-button {
   display: none;
 }
 
-input::-webkit-search-cancel-button { 
+input::-webkit-search-cancel-button {
   display: none;
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
 }
 
 input::-ms-clear {
@@ -47,7 +46,7 @@ input {
   outline: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   outline: none;
 }
-

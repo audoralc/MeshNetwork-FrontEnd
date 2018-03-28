@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: #f6f6f6;
 }
 
 .addEventBanner {
@@ -58,6 +59,11 @@
   flex-direction: column;
   overflow: auto;
   height: 200px;
+}
+
+.addEventSelect {
+  margin: 15px 0;
+  height: 2em;
 }
 
 .addEventSelectedOrganizersContainer {
@@ -199,8 +205,7 @@ dl#addEventUserInfo dt {
 .addEventFormLabel {
   color: rgba(0, 0, 0, 0.54);
   display: block;
-  margin-top: 32px;
-  margin-bottom: 24px;
+  margin: 15px 0;
   /* display: none; */
 }
 
@@ -336,8 +341,7 @@ dl#addEventUserInfo dt {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 30px 0;
 }
 
 .spaceLogoMainImageBlock {

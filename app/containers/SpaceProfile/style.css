@@ -236,6 +236,7 @@ a.spaceProfileActions {
   margin: 20px auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .spaceMainHeader {
@@ -269,15 +270,15 @@ a.spaceProfileActions {
   font-family: "HankenBook";
   color: #ff4d58;
   font-size: 3em;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  padding-bottom: 0;
+  width: 150%;
+  /* width allows for long names*/
 }
 
 .spaceMainSlogan {
   font-family: "HankenBook";
   color: #bbbbbb;
   font-size: 1.2em;
-  margin-bottom: 15px;
 }
 
 .spaceContact {
