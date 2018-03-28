@@ -468,12 +468,14 @@ export default class SpaceDash extends React.PureComponent {
     );
   };
   deleteEvent = (eventID, index) => {
-    fetch(`https://innovationmesh.com/api/event/delete/${eventID}`, {
-      headers: { Authorization: `Bearer ${localStorage["token"]}` }
+    fetch(`https://innovationmesh.com/api/deleteEvent/${eventID}`, {
+      method:'POST',
+      headers: { Authorization: `Bearer ${localStorage['token']}` }
     })
       .then(response => response.json())
       .then(({ success, error }) => {
         if (success) {
+          this.showSnack(success);
           const spaceEvents = this.state.spaceEvents.slice();
           spaceEvents.splice(index, 1);
           this.setState(() => ({ spaceEvents }));
